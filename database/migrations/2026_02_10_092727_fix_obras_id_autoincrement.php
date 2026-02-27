@@ -1,0 +1,19 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        DB::statement("ALTER TABLE obras MODIFY id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT");
+        DB::statement("ALTER TABLE obras MODIFY imagen VARCHAR(255) NULL");
+    }
+
+    public function down(): void
+    {
+        DB::statement("ALTER TABLE obras MODIFY id BIGINT UNSIGNED NOT NULL");
+        DB::statement("ALTER TABLE obras MODIFY imagen VARCHAR(255) NOT NULL");
+    }
+};
